@@ -42,7 +42,7 @@ Rot8 | - [ ] not working- investigate<br/> - [ ] generate configs for portrait v
 nwg-drawer | - [ ] clean up config: seems wider than screen area
 Other | - [ ] Icons - consider new set for lavalauncher + waybar<br/> - [ ] Simple EPD refresh method<br/> - [ ] app-specific configs: firefox, gedit, nemo/thunar/etc.<br/> |
 Icons | - [ ] lavalauncher + waybar: find some that are easier to install and look better<br/> - [ ] nwg-drawer/general systemwide: find eink friendly set<br/> | 
-Systemd | - [ ] suspend hooks (if image preferred over blanked screen during suspend)<br/> - [ ] sift through systemd setup to clarify config required to make everything work<br/> |
+Systemd | - [ ] suspend hooks (if image preferred over blanked screen during suspend)<br/> - [ ] establish startup screen brightness + EPD settings - [ ] (general) sift through systemd setup to clarify config required to make everything work<br/> |
 
 
 
