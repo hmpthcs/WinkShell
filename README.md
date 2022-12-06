@@ -30,7 +30,7 @@ There is not yet any shell script to automate installation of necessary apps and
 Item / App | To be done | Known bugs
 --- | --- | ---
 Install | Provide script to automate app installation, script and configuration placement<br/> - [ ] First for Sway<br/> - [ ] Other compositors<br/> | 
-Sway | - [ ] Borders (can't tell which container has focus)<br/> - [ ] come up with system for resizing windows<br/> - [ ] manage toggling stacking/tabbed windows and horizontal/vertical split views<br/> | 
+Sway | - [ ] Borders (can't tell which container has focus)<br/> - [ ] come up with system for resizing windows<br/> - [ ] manage toggling stacking/tabbed windows and horizontal/vertical split views<br/> - [ ] find way to enter a new/empty workspace<br/> | 
 wvkbd | - [ ] fix appearance (currently still dark theme)<br/> - [ ] resize (currently pretty short)<br/> - [ ] develop better layers, maybe some app-specific layers<br/> |
 Waybar | - [ ] verify that waybar show/hide is consistent with built-in toggle feature<br/> - [ ] on-click actions need to be overhauled<br/> - [ ] potentially remove workspace buttons (pending testing of SOV + gesture functionality)<br/> |
 SOV | - [ ] figure out why instance started in sway config appears to not be working<br/> - [ ] modify shell script to hide-> show (refresh) SOV whenever switching workspace view or window location (workspace number/name and position within workspace)<br/> |
