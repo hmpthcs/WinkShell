@@ -1,5 +1,5 @@
 # WinkShell
-Collected applications, configurations and scripts for using a wayland roots-based compositor with an EPD (aka e-ink). Currently supports sway only. Developed for Pinenote.
+Collected applications, configurations and scripts for using a wlroots-based compositor with an EPD (aka e-ink). Currently supports sway only. Developed for Pinenote.
 
 
 **Configuration files** are found in WinkShell/config. These are placed in ~/.config/[specific application]
