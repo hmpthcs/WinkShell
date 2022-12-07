@@ -61,6 +61,7 @@ Browser (firefox) | - [ ] modify to be only one bar instead of two (tabs + nav/m
 GTK | - [ ] evaluate whether a ground-up custom GTK theme would be better than HighContrast<br/> | 
 Other | - [ ] Simple EPD refresh method<br/> - [ ] app-specific configs: gedit?, nemo/thunar/etc.<br/> |
 Icons | - [ ] lavalauncher + waybar: find some that are easier to install and look better<br/> - [ ] nwg-drawer/general systemwide: find eink friendly set<br/> | 
+Touch and Stylus | -[ ] investigate ways to improve touch arbitration globally and in specific apps (e.g., xournal++)<br/> | 
 Systemd | - [ ] suspend hooks (if image preferred over blanked screen during suspend)<br/> - [ ] establish startup screen brightness + EPD settings</br> - [ ] (general) sift through systemd setup to clarify config required to make everything work<br/> |
 
 
