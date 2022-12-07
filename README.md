@@ -1,9 +1,11 @@
 # WinkShell
-Collected applications, configurations and scripts for using a wlroots-based compositor with an EPD (aka e-ink). Currently supports sway only. Developed for Pinenote.
+Collected applications, configurations and scripts for using a wlroots-based compositor with an EPD (aka e-ink display). Currently supports Sway only. Developed for Pinenote.
 
 
 ### Status as of 06 December 2022:
 There is not yet any shell script to automate installation of necessary apps and placement scripts and configuration files. All of the files and instructions in this repository are tailored to work with Sway. Pieces of course can be cherry-picked for use with any other appropriate environment. Some, however (such as SOV, which relies fundamentally on swaymsg), may need more extensive modification to work outside of sway, if at all possible. Rotation not yet implemented--landscape mode only.
+
+I have only been generating configuration files for the core apps used by the shell and for those that I use or am familiar with. Please help expand this project by sharing e-ink-tailored configs for apps that you use.
 
 ***Abbreviated app-specific notes and caveats*** (see table at the end of this document for a more comprehensive listing)
 * Sway
@@ -45,7 +47,7 @@ pacman -S sway waybar
 Item / App | To be done | Known bugs
 --- | --- | ---
 Install | Provide script to automate app installation, script and configuration placement<br/> - [ ] First for Sway<br/> - [ ] Other compositors<br/> | 
-Sway | - [ ] Borders (can't tell which container has focus)<br/> - [ ] come up with system for resizing windows<br/> - [ ] method for sending window to different workspace - [ ] manage toggling stacking/tabbed windows and horizontal/vertical split views<br/> - [ ] find way to enter a new/empty workspace<br/> | 
+Sway | - [ ] Borders (can't tell which container has focus)<br/> - [ ] come up with system for resizing windows<br/> - [ ] method for sending window to different workspace - [ ] manage toggling stacking/tabbed windows and horizontal/vertical split views<br/> - [ ] find way to enter a new/empty workspace<br/> - [ ] come up with simple way to toggle fullscreen for focused window and still receive touch input to exit fullscreen<br/> | 
 wvkbd | - [ ] fix appearance (currently still dark theme)<br/> - [ ] resize (currently pretty short)<br/> - [ ] develop better layers, maybe some app-specific layers<br/> |
 Waybar | - [ ] verify that waybar show/hide is consistent with built-in toggle feature<br/> - [ ] on-click actions need to be overhauled<br/> - [ ] potentially remove workspace buttons (pending testing of SOV + gesture functionality)<br/> |
 SOV | - [ ] figure out why instance started in sway config appears to not be working<br/> - [ ] modify shell script to hide-> show (refresh) SOV whenever switching workspace view or window location (workspace number/name and position within workspace)<br/> |
@@ -54,8 +56,10 @@ Lavalauncher | - [ ] remove "lavahidden," make "lavamain" be default for sway st
 Scripts (general) | - [ ] Run all lisgd gesture actions from a common script using variables for the actions - [ ] review for hangups causing unresponsiveness and clean scripts up<br/> - [ ] review each app-specific with respect to "toggle" vs. separate "show", "hide"/"kill" scripts<br/> | 
 Menus | - [ ] select a menu system (wofi/rofi/dmenu-like) and generate the following:<br/>    * power/shutdown/suspend<br/>    * wifi<br/>    * bluetooth<br/>   * screen (brightness+EPD)<br/>| 
 Rot8 | - [ ] not working- investigate<br/> - [ ] generate configs for portrait view for waybar + lisgd | 
-nwg-drawer | - [ ] clean up config: seems wider than screen area
-Other | - [ ] Icons - consider new set for lavalauncher + waybar<br/> - [ ] Simple EPD refresh method<br/> - [ ] app-specific configs: firefox, gedit, nemo/thunar/etc.<br/> |
+nwg-drawer | - [ ] clean up config: seems wider than screen area | 
+Browser (firefox) | - [ ] modify to be only one bar instead of two (tabs + nav/menus)<br/> - [ ] find an existing or generate a new theme with firefox interface colors and border styles optimized for e-ink<br/> - [ ] assess existing extensions for forcing webpage colors to be e-ink friendly; also assess those which allow on-the-fly style tweaks<br/> | 
+GTK | - [ ] evaluate whether a ground-up custom GTK theme would be better than HighContrast<br/> | 
+Other | - [ ] Simple EPD refresh method<br/> - [ ] app-specific configs: gedit?, nemo/thunar/etc.<br/> |
 Icons | - [ ] lavalauncher + waybar: find some that are easier to install and look better<br/> - [ ] nwg-drawer/general systemwide: find eink friendly set<br/> | 
 Systemd | - [ ] suspend hooks (if image preferred over blanked screen during suspend)<br/> - [ ] establish startup screen brightness + EPD settings</br> - [ ] (general) sift through systemd setup to clarify config required to make everything work<br/> |
 
