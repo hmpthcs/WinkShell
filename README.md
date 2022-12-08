@@ -5,7 +5,7 @@ Collected applications, configurations and scripts for using a wlroots-based com
 ### Status as of 06 December 2022:
 There is not yet any shell script to automate installation of necessary apps and placement scripts and configuration files. All of the files and instructions in this repository are tailored to work with Sway. Pieces of course can be cherry-picked for use with any other appropriate environment. Some, however (such as SOV, which relies fundamentally on swaymsg), may need more extensive modification to work outside of sway, if at all possible. Rotation not yet implemented--landscape mode only.
 
-I have only been generating configuration files for the core apps used by the shell and for those that I use or am familiar with. Please help expand this project by sharing e-ink-tailored configs for apps that you use.
+I have only been generating configuration files for the core apps used by the shell and for those that I use or am familiar with. Please help expand this project by sharing e-ink-tailored configs for apps that you use. Moreover, please don't hesitate to let me know if I have missed anything or if you have any problems getting this to work.
 
 ***Abbreviated app-specific notes and caveats*** (see table at the end of this document for a more comprehensive listing)
 * Sway
@@ -26,23 +26,76 @@ I have only been generating configuration files for the core apps used by the sh
    * current flow: sway config executes lisgd-run.sh -> lisgd-run.sh executes lisgd itself -> lisgd then executes shell scripts to control applications in response to gestures. I did this to allow better manipulation of gesture actions. Future changes could place conditional statements in lisgd-run.sh to allow lisgd's actions to depend not only on gesture, but some other input (e.g., a mode button toggle). It might make sense to also do away with the app-specific scripts, instead just placing their contents in the lisgd-run script.
    * Note on scripts: these are very messy right now. Planning to replace most of the "toggle" scripts with separate on/show and off/hide scripts. Some started as toggles as I was using button presses to trigger these actions before.
 
-**Configuration files** are found in WinkShell/config. These are placed in ~/.config/[specific application]
-
-**Shell scripts** are found in WinkShell/scripts. At the moment a number of apps look for the scripts they need in /usr/local/bin. 
 
 ### Instructions (for sway running on arch linux)
 
-pacman -S sway waybar 
 
-***Waybar***
+**Configuration files** are found in WinkShell/config. These are placed in ~/.config/[specific application]
+
+**Shell scripts** are found in WinkShell/scripts. At the moment a number of apps look for the scripts they need in /usr/local/bin.  
+
+***General Stuff***
+
+```pacman -S sway waybar wofi otf-font-awesome```
 
 ***SOV***
+``` git clone https://github.com/milgra/sov.git
+cd sov
+meson setup build --buildtype=release
+ninja -C build
+sudo ninja -C build install
+cp contrib/systemd/sov.{service,socket} ~/.local/share/systemd/user/
+systemctl daemon-reload --user
+systemctl enable --now --user sov.socket 
+```
 
 ***lisgd***
 
+Install from source: https://git.sr.ht/~mil/lisgd
+
+Or use AUR https://aur.archlinux.org/packages/lisgd
+
+(or whatever the repository for your distribution that has lisgd) 
+
 ***lavalauncher***
 
-#### Issues and "Opportunities":
+```git clone https://git.sr.ht/~leon_plickat/lavalauncher
+cd lavalauncher
+meson build
+ninja -C build
+sudo ninja -C build install
+```
+
+If you intend to use as-is, you'll need the icon set available here: https://phosphoricons.com/
+
+Place in `/usr/share/icons/phosphoricons` (or alternatively install the proper way).
+
+***nwg-drawer***
+
+```git clone https://github.com/nwg-piotr/nwg-drawer.git
+cd nwg-drawer
+make get
+make build
+sudo make install
+```
+
+***wvkbd***
+
+* prerequisites: 
+   * cairo
+   * pango
+   * wayland-client
+   * xkbcommon
+   
+* Note: I haven't done any configuration for this one. Thus it looks like a phone keyboard--dark and cramped. Config is done prior to compilation, yielding a custom binary. See: https://github.com/jjsullivan5196/wvkbd
+
+```git clone https://github.com/jjsullivan5196/wvkbd.git
+make
+## not sure if this is correct; in any case, your binary from the step above is wvkbd-mobintl. 
+# make install
+```
+
+### Issues and "Opportunities":
 
 Item / App | To be done | Known bugs
 --- | --- | ---
