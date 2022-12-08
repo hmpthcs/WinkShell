@@ -62,7 +62,8 @@ I have only been generating configuration files for the core apps used by the sh
 ```pacman -S sway waybar wofi otf-font-awesome```
 
 ***SOV***
-``` git clone https://github.com/milgra/sov.git
+```
+git clone https://github.com/milgra/sov.git
 cd sov
 meson setup build --buildtype=release
 ninja -C build
@@ -82,7 +83,8 @@ Or use AUR https://aur.archlinux.org/packages/lisgd
 
 ***lavalauncher***
 
-```git clone https://git.sr.ht/~leon_plickat/lavalauncher
+```
+git clone https://git.sr.ht/~leon_plickat/lavalauncher
 cd lavalauncher
 meson build
 ninja -C build
@@ -95,7 +97,8 @@ Place in `/usr/share/icons/phosphoricons` (or alternatively install the proper w
 
 ***nwg-drawer***
 
-```git clone https://github.com/nwg-piotr/nwg-drawer.git
+```
+git clone https://github.com/nwg-piotr/nwg-drawer.git
 cd nwg-drawer
 make get
 make build
@@ -112,7 +115,8 @@ sudo make install
    
 * Note: I haven't done any configuration for this one. Thus it looks like a phone keyboard--dark and cramped. Config is done prior to compilation, yielding a custom binary. See: https://github.com/jjsullivan5196/wvkbd
 
-```git clone https://github.com/jjsullivan5196/wvkbd.git
+```
+git clone https://github.com/jjsullivan5196/wvkbd.git
 make
 ## not sure if this is correct; in any case, your binary from the step above is wvkbd-mobintl. 
 # make install
