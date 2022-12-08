@@ -140,7 +140,7 @@ Lavalauncher | - [ ] remove "lavahidden," make "lavamain" be default for sway st
 Scripts (general) | - [ ] Run all lisgd gesture actions from a common script using variables for the actions - [ ] review for hangups causing unresponsiveness and clean scripts up<br/> - [ ] review each app-specific with respect to "toggle" vs. separate "show", "hide"/"kill" scripts<br/> | 
 Menus | - [ ] select a menu system (wofi/rofi/dmenu-like) and generate the following:<br/>    * power/shutdown/suspend<br/>    * wifi<br/>    * bluetooth<br/>   * screen (brightness+EPD)<br/>| 
 Rot8 | - [ ] not working- investigate<br/> - [ ] generate configs for portrait view for waybar + lisgd | 
-nwg-drawer | - [ ] clean up config: seems wider than screen area | 
+nwg-drawer | - [ ] clean up config: seems wider than screen area<br/> - [ ] need a way to close the launcher without opening an app. gesture maybe? | 
 Browser (firefox) | - [ ] modify to be only one bar instead of two (tabs + nav/menus)<br/> - [ ] find an existing or generate a new theme with firefox interface colors and border styles optimized for e-ink<br/> - [ ] assess existing extensions for forcing webpage colors to be e-ink friendly; also assess those which allow on-the-fly style tweaks<br/> | 
 GTK | - [ ] evaluate whether a ground-up custom GTK theme would be better than HighContrast<br/> | 
 Other | - [ ] Simple EPD refresh method<br/> - [ ] app-specific configs: gedit?, nemo/thunar/etc.<br/> |
