@@ -41,7 +41,7 @@ I have only been generating configuration files for the core apps used by the sh
 * nwg-drawer
    * can't seem to scroll all the way to the right. Dunno.
 * lavalauncher
-   * icons: are from the phosphor icon set; some may be not the most intuitive. I like fontawesome too, but I think we can do better here.
+   * icons: are from the phosphor icon set; some may be not the most intuitive. I like fontawesome too, but I think we can do better here. Needs work.
    * scripts/actions: most are dummy buttons; top button is a fallback to close the lavalauncher instance in case lisgd fails. Have a look at lavamain.conf to customize--its very straightforward relative to other configs.
 * lisgd
    * make sure your environment variables are set properly. This was not working for me until I made a number of changes to correct missing envvars with greetd as my login manager; not sure which of those changes was the winner.
