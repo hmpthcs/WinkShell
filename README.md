@@ -42,6 +42,7 @@ I have only been generating configuration files for the core apps used by the sh
    * most modules are dummy indicators: at some point they should all for the most part open a menu or app on being tapped. No system tray as I intend to use wofi menus or similar for such functions as wifi, bluetooth and power management.
 * SOV
    * focused workspace text color doesn't appear to be modifiable without changing it globally for SOV. This is ugly..but I really want to shoot for a systemwide theme of focused=black/very dark, unfocused=white, as the alternatives lose important contrast (if using gray tones here) or look gross (black for all unfocused, white only for focused). Maybe some heavy, bold borders could work here and elsewhere to follow the dark=focus pattern.
+   * If anyone out there reading this has layer-shell protocol understanding and can advise on how to modify the sov source to make the workspaces clickable buttons (or would like to undertake the task themselves), this would immensely improve current user experience and open some very cool possibilities
 * nwg-drawer
    * can't seem to scroll all the way to the right. Dunno.
 * lavalauncher
