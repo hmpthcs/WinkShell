@@ -1,5 +1,15 @@
+
 # WinkShell
-Collected applications, configurations and scripts for using a wlroots-based compositor with an EPD (aka e-ink display). Currently supports Sway only. Developed for Pinenote.
+Collected applications, configurations and scripts for using a wlroots-based compositor with an EPD (aka e-ink display). Currently supports Sway only. Developed for Pinenote. 
+
+(apologies, better pics are coming..at the moment I just have my dying phone, leaving only part of the image in focus).
+
+![alt text](https://i.imgur.com/12dgA7T.jpg)
+
+
+![alt text](https://i.imgur.com/aIgDlWj.jpg)
+
+More pics: https://imgur.com/a/tXtyWw2
 
 
 ### Status as of 06 December 2022:
