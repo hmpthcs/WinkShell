@@ -11,6 +11,19 @@ Collected applications, configurations and scripts for using a wlroots-based com
 
 More pics: https://imgur.com/a/tXtyWw2
 
+****Much credit goes to all of those sharing their Pinenote work on the Pine64 Matrix channel (Come join the discussion: https://matrix.to/#/#pinenote:matrix.org)****
+
+****Based heavily on work found here, among other places:****
+* https://github.com/0cc4m/pinenote-misc (here you'll find info on getting hardware acceleration working with mesa on the Pinenote)
+* https://github.com/m-weigand/mw_pinenote_misc (extensive work and documentation on rockchip EBC driver)
+* https://github.com/DorianRudolph/pinenotes (lots of info here on flashing the device and the initial setup for arch arm)
+* https://musings.martyn.berlin/ (in particular, see posts dated Aug 16 2022 and older for Pinenote specifics)
+
+****Relevant Pine64 wiki pages:****
+* https://wiki.pine64.org/wiki/PineNote_Development
+* https://wiki.pine64.org/wiki/PineNote_Development/TODOs
+* https://wiki.pine64.org/wiki/PineNote:_Getting_Started
+* https://wiki.pine64.org/wiki/PineNote_Development/Building_Kernel
 
 ### Status as of 06 December 2022:
 There is not yet any shell script to automate installation of necessary apps and placement scripts and configuration files. All of the files and instructions in this repository are tailored to work with Sway. Pieces of course can be cherry-picked for use with any other appropriate environment. Some, however (such as SOV, which relies fundamentally on swaymsg), may need more extensive modification to work outside of sway, if at all possible. Rotation not yet implemented--landscape mode only.
