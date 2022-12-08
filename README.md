@@ -25,13 +25,14 @@ More pics: https://imgur.com/a/tXtyWw2
 * https://wiki.pine64.org/wiki/PineNote:_Getting_Started
 * https://wiki.pine64.org/wiki/PineNote_Development/Building_Kernel
 
-***Important***
-While I've been able to get my device at least as functional as the Pinenote's stock android image, you will quickly find below that some very basic cleanup work and streamlining has eluded me. I am an in-over-my-head medical student whose development acumen is akin to Coco the gorilla's "knowledge" of sign language (hence the username). In short,  **_I need your help!_** If you have any interest in sharing your expertise, tips or critiques, do not hesitate to reach out, whether here on github, the Pinenote matrix (link above) or email (hmpthcs@protonmail.com). 
+***Important, Please Read***
+
+While I am happy that I have been able to get my device at least as functional as the Pinenote's stock android image, you will quickly find below that some very basic cleanup work and streamlining has eluded me. I am an in-over-my-head medical student whose development acumen is akin to Coco the gorilla's "knowledge" of sign language (hence the username). In short,  **_I need your help!_** If you have any interest in sharing your expertise, tips or even just critiques, do not hesitate to reach out, whether here on github, the Pinenote matrix (link above) or email (hmpthcs@protonmail.com). 
 
 ### Status as of 06 December 2022:
 There is not yet any shell script to automate installation of necessary apps and placement scripts and configuration files. All of the files and instructions in this repository are tailored to work with Sway. Pieces of course can be cherry-picked for use with any other appropriate environment. Some, however (such as SOV, which relies fundamentally on swaymsg), may need more extensive modification to work outside of sway, if at all possible. Rotation not yet implemented--landscape mode only.
 
-I have only been generating configuration files for the core apps used by the shell and for those that I use or am familiar with. Please help expand this project by sharing e-ink-tailored configs for apps that you use. Moreover, please don't hesitate to let me know if I have missed anything or if you have any problems getting this to work.
+I have only been generating configuration files for the core apps used by the shell and for those that I use or am familiar with. Please help expand this project by sharing e-ink-tailored configs for apps that you use. Moreover, please do let me know if I have missed anything or if you have any problems getting this to work. Bugs likely abound and are a known unknown at this point; would appreciate help in exposing as many as possible.
 
 ***Abbreviated app-specific notes and caveats*** (see table at the end of this document for a more comprehensive listing)
 * Sway
