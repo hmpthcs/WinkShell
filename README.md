@@ -25,6 +25,9 @@ More pics: https://imgur.com/a/tXtyWw2
 * https://wiki.pine64.org/wiki/PineNote:_Getting_Started
 * https://wiki.pine64.org/wiki/PineNote_Development/Building_Kernel
 
+***Important***
+While I've been able to get my device at least as functional as the Pinenote's stock android image, you will quickly find below that some very basic cleanup work and streamlining has eluded me. I am an in-over-my-head medical student whose development acumen is akin to Coco the gorilla's "knowledge" of sign language (hence the username). In short,  **_I need your help!_** If you have any interest in sharing your expertise, tips or critiques, do not hesitate to reach out, whether here on github, the Pinenote matrix (link above) or email (hmpthcs@protonmail.com). 
+
 ### Status as of 06 December 2022:
 There is not yet any shell script to automate installation of necessary apps and placement scripts and configuration files. All of the files and instructions in this repository are tailored to work with Sway. Pieces of course can be cherry-picked for use with any other appropriate environment. Some, however (such as SOV, which relies fundamentally on swaymsg), may need more extensive modification to work outside of sway, if at all possible. Rotation not yet implemented--landscape mode only.
 
@@ -79,7 +82,7 @@ Install from source: https://git.sr.ht/~mil/lisgd
 
 Or use AUR https://aur.archlinux.org/packages/lisgd
 
-(or whatever the repository for your distribution that has lisgd) 
+(or whatever the repository may be for your distribution that has lisgd) 
 
 ***lavalauncher***
 
@@ -118,7 +121,7 @@ sudo make install
 ```
 git clone https://github.com/jjsullivan5196/wvkbd.git
 make
-## not sure if this is correct; in any case, your binary from the step above is wvkbd-mobintl. 
+## not sure if this next step is correct; in any case, your binary from the step above is wvkbd-mobintl. Place it wherever it needs to be to be executed by name alone. 
 # make install
 ```
 
