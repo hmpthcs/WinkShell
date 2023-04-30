@@ -1,8 +1,8 @@
 # anchor, where to display sov, top, bottom, left, right, center
-anchor bottom
+anchor top
 
 # margin, distance from edges if anchor is set
-margin 2
+margin 40
        
 # show timeout in millisecs
 timeout 200
@@ -53,8 +53,8 @@ text_workspace_yshift -13
 # border color
 border_color #000000FF
 
-# background color
-background_color #FFFFFFFF
+# background color (FOR WORKSPACES)
+background_color #FFFFFFff
 
 # focused background color
 background_color_focused #393D47FF
@@ -65,8 +65,8 @@ empty_color #FFFFFF80
 # empty thumb border
 empty_frame_color #d3d3d3FF
 
-# window color
-window_color #595A5C80
+# window color (BACKGROUND FOR WHOLE SOV PANEL)
+window_color #FFFFFFff
 
 # corner radius for the popup window
 window_border_radius 1

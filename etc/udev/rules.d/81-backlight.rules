@@ -1,0 +1,2 @@
+KERNEL=="backlight_cool", SUBSYSTEM=="backlight", ACTION=="add", ATTR{brightness}="0"
+KERNEL=="backlight_warm", SUBSYSTEM=="backlight", ACTION=="add", ATTR{brightness}="0"

@@ -1,0 +1,94 @@
+#main {
+    border-radius: 5px;
+    background-color: #fffff00;
+}
+
+#base {
+    margin: 5px;
+}
+
+.fullscale {
+    height: 100%;
+    width: 100%;
+}
+
+.colflex {
+    display: flex;
+    flex-direction: column;
+}
+
+.rowflex {
+    display: flex;
+    flex-direction: row;
+}
+
+.workspace {
+    margin: 4px;
+    border-radius: 5px;
+    background-color: #ffffffFF;
+    border-width: 3px;
+    border-color: #00000000;
+}
+
+.window {
+    width: 100%;
+    height: 75px;
+    background-color: #ffffffFF;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #000000FF;
+}
+
+.window_active {
+    width: 100%;
+    height: 75px;
+    background-color: #444444FF;
+    border-radius: 5px;
+    border-width: 3px;
+    border-color: #000000FF;
+}
+
+.title_active {
+    width: 100%;
+    height: 21px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    color: #FFFFFFFF;
+    font-size: 14px;
+    font-family: "Bitter:style=Bold";
+}
+
+.title {
+    width: 100%;
+    height: 21px;
+    margin-top: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    color: #000000FF;
+    font-size: 14px;
+    font-family: "Bitter:style=Bold";
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    margin-left: 2px;
+    margin-right: 2px;
+    color: #333333FF;
+    vertical-align: top;
+    font-size: 12px;
+    font-family: "Bitter";
+    word-wrap: break-word;
+    line-height: 18px;
+}
+
+.number {
+    width: 20px;
+    height: 20px;
+    right: -14px;
+    top: -9px;
+    color: #000000FF;
+    font-size: 18px;
+    font-family: "Terminus (TTF):style=Bold";
+}

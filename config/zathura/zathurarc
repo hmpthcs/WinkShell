@@ -1,0 +1,22 @@
+set highlight-color "#D3D3D3"
+
+set highlight-active-color "#D3D3D3"
+
+#set highlight-transparency "0.5"
+
+set default-fg "#000000"
+set default-bg "#FFFFFF"
+
+
+set recolor true
+set recolor-keephue true
+set recolor-darkcolor "#000000"
+set recolor-lightcolor "#FFFFFF"
+# set-scroll-full-overlap 0.5
+set scroll-page-aware false
+# set smooth-scroll false
+set index-fg "#000000"
+set index-bg "#FFFFFF"
+set index-active-fg "#FFFFFF"
+set index-active-bg "#000000"
+set font "Bitter"

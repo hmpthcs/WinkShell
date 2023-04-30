@@ -1,0 +1,1 @@
+KERNEL=="gpio-keys", SUBSYSTEM=="platform", DRIVER=="gpio-keys", ATTR{power/wakeup}="disabled"

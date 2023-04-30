@@ -1,0 +1,84 @@
+# anchor, where to display sov, top, bottom, left, right, center
+anchor center
+
+# margin, distance from edges if anchor is set
+margin 2
+       
+# show timeout in millisecs
+timeout 200
+
+# distance between workspaces
+gap 20
+
+# columns
+columns 5
+
+# thumbnail to workspace ratio
+ratio 6
+
+# font face, use any string that is output by fc-list, recommended is Terminus (TTF):style=Bold
+font_face Terminus (TTF):style=Regular
+
+# margin size around text
+text_margin_size 5
+
+# margin top size over text
+text_margin_top_size 4
+
+# title text size
+text_title_size 14
+
+# title text color
+text_title_color #000000FF
+text_title_colo_focused #FFFFFFFF
+
+# description text size
+text_description_size 12
+
+# description text color
+text_description_color #887E78FF
+
+# workspace number text size
+text_workspace_size 18
+
+# workspace number text color
+text_workspace_color #000000FF
+
+# workspace number x shift
+text_workspace_xshift -155
+
+# workspace number y shift
+text_workspace_yshift -13
+
+# border color
+border_color #000000FF
+
+# background color
+background_color #FFFFFFFF
+
+# focused background color
+background_color_focused #393D47FF
+
+# empty thumb color
+empty_color #FFFFFF80
+
+# empty thumb border
+empty_frame_color #d3d3d3FF
+
+# window color
+window_color #595A5C80
+
+# corner radius for the popup window
+window_border_radius 1
+
+# color of the popup window
+window_border_color #000000FF
+
+# border size of the popup window
+window_border_size 1
+
+# corner radius for workspaces and windows
+workspace_border_radius 3
+
+# workspaces and windows border size
+workspace_border_size 1

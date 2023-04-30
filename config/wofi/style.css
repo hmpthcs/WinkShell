@@ -1,0 +1,113 @@
+#entry {
+  border-top: 1px solid #aaaaaa;
+  border-bottom: 1px solid #aaaaaa;
+  border-radius: 0px;
+  padding: 0px 0px 0x 0px;
+  background-color: rgba(255,255,255,0);
+}
+
+
+#entry:selected {
+  background-color: #000000;
+  border: 1px solid black;
+}
+
+#scale trough {
+  background-color: rgba(255,255,255,0);
+  border: none;
+  }
+
+#levelbar,
+#combobox,
+#row {
+  border: none;
+  background-color: rgba(255,255,255,0);
+  } 
+
+#text:selected {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+#scrolledwindow {
+  background-color: rgba(255,255,255,0);
+  border: none;
+  }
+ 
+#flowbox,  
+#box,
+#window {
+  padding: 0px;
+  outline-color: rgba(255,255,255,0);
+  background-color: rgba(255,255,255,0);
+  border: none;
+  font-family: 'Phosphor','Bitter';
+  font-size: 18px;
+  margin: 0px;
+}
+
+#input {
+  border: none;
+  background-color: rgba(255,255,255,0);
+  padding: 0px;
+  margin: 0px;
+  color: transparent;
+}
+
+
+#inner-box {
+  color: rgba(255,255,255,0);
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-radius: 0px 0px 0px 0px;
+  background-color: rgba(255,255,255,0);
+}
+
+#outer-box {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  background-color: rgba(255,255,255,0);
+}
+
+#scroll {
+  margin-top: 0px;
+  background-color: rgba(255,255,255,0);
+  border: none;
+}
+
+#viewport {
+  background-color:255,255,255,0);
+  border: none;
+  }
+
+#boxed-list,
+#card {
+  background-color: rgba(255,255,255,0);
+  border: none;
+  }
+
+#view {
+  background-color: rgba(255,255,255,0);
+  border: none;
+  }
+
+.frame {
+  background-color: rgba(255,255,255,0);
+  border: none;
+  }
+
+#text {
+  background-color: transparent;
+  padding: 7px 2px 7px 2px;
+  border: none;
+}
+
+#img {
+  background-color: transparent;
+  padding: 0px;
+}

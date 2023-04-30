@@ -1,0 +1,16 @@
+width=400
+oder=default
+height=700
+mode=drun
+filter_rate=100
+allow_markup=true
+no_actions=true
+term=alacritty
+halign=start
+lines=10
+orientation=vertical
+content_halign=fill
+drun-display_generic=true
+single_click=true
+xoffset=0
+location=2

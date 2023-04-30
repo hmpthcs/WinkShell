@@ -1,0 +1,1 @@
+wvkbd-mobintl --fg ffffffff --fg-sp dfdfdfff --bg 000000ff --text 000000ff --text-sp 000000ff --press 000000ff --press-sp 000000ff --swipe 000000ff --swipe-sp 000000ff -L 160 -H 180 --landscape-layers landscape,special -l simple,special --hidden --fn "Bitter 14" -O | swipeGuess /usr/local/bin/count1w.txt | completelyTypeWord.sh

@@ -1,0 +1,2 @@
+# lisgd requires /dev/input/touchscreen
+ACTION=="add|change", SUBSYSTEM=="input", KERNEL=="event[0-9]*", ENV{ID_INPUT_TOUCHSCREEN}=="1", MODE:="0666", SYMLINK+="input/touchscreen"

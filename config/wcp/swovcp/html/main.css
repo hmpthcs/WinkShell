@@ -1,0 +1,194 @@
+#main {
+    border-radius: 3px;
+    border-width: 3px;
+    border-color: #000000ff;
+    background-color: #ffffffff;
+}
+
+.fullscaleview {
+    height: 100%;
+    width: 100%;
+}
+
+.colflex {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.rowflex {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.row {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.flatrow {
+    width: 100%;
+    height: 30px;
+}
+
+.labelback {
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #ffffffff;
+    border-width: 2px;
+    border-color: #000000ff;
+}
+
+.label {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff00;
+    margin-left: 5px;
+    line-height: 25px;
+    color: #000000ff;
+    font-size: 16px;
+    font-family: "Bitter";
+}
+
+.button0 {
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff00;
+    border-radius: 5px;
+}
+
+.button {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff00;
+    color: #ffffff00;
+    border-color: #000000ff;
+    border-width: 2px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.buttonbig {
+    width: 100%;
+    height: 125px;
+    background-color: #ffffff00;
+    color: #ffffff00;
+    border-width: 2px;
+    border-color: #000000ff;
+    border-radius: 5px;
+}
+
+
+.horgap10 {
+    width: 100%;
+    height: 100px;
+}
+
+.vertgap10 {
+    width: 20px;
+    height: 100%;
+}
+
+.margin5 {
+    margin: 10px;
+}
+
+#ws1icon {
+    width: 50px;
+    height: 50px;
+    background-image: url("number-one-thin.png");
+    blocks: yes;
+}
+
+#ws2icon {
+    width: 50px;
+    height: 50px;
+    background-image: url("number-two-thin.png");
+    blocks: no;
+}
+
+#ws3icon {
+    width: 50px;
+    height: 50px;
+    background-image: url("number-three-thin.png");
+    blocks: no;
+}
+
+#ws4icon {
+    width: 50px;
+    height: 50px;
+    background-image: url("number-four-thin.png");
+    blocks: no;
+}
+
+#ws5icon {
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    background-image: url("number-five-thin.png");
+    blocks: no;
+}
+
+
+#layoutsicon {
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    background-image: url("activity-thin.png");
+    blocks: no;
+}
+
+#sendtoicon {
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    background-image: url("arrow-square-out-thin.png");
+    blocks: no;
+}
+
+#pullinicon {
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    background-image: url("arrow-square-in-thin.png");
+    blocks: no;
+}
+
+#tileicon {
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    background-image: url("grid-four-thin.png");
+    blocks: no;
+}
+
+#tabicon {
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    background-image: url("tabs-thin.png");
+    blocks: no;
+}
+
+#killallinwsicon {
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    background-image: url("file-x-thin.png");
+    blocks: no;
+}
+
+#closemenuicon {
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    background-image: url("x-thin.png");
+    blocks: no;
+}
+

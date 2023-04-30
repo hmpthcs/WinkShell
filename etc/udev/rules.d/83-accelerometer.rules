@@ -1,0 +1,6 @@
+# example for finding a HW device and giving it a symlinked name
+# ACTION=="add|change", SUBSYSTEM=="input", KERNEL=="event[0-9]*", ENV{ID_INPUT_TOUCHSCREEN}=="1", MODE:="0666", SYMLINK+="input/touchscreen"
+
+#example for changing group ownership and permissions for that group on a HW device
+# KERNEL=="backlight_warm", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/backlight_warm/brightness", RUN+="/bin/chmod a+r "
+
