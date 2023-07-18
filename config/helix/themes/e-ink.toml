@@ -1,0 +1,124 @@
+# e-ink
+# Author: hmpthcs / manape
+# Version: 0.1
+# License: MIT License
+
+"escape" = "black"
+"type" = "black"
+"constant" = "g4"
+"number" = "g4"
+"string" = "fg"
+"comment" = "g5"
+"variable" = "g5"
+"variable.builtin" = "black"
+"variable.parameter" = "black"
+"variable.property" = "black"
+"label" = "black"
+"punctuation" = "black"
+"punctuation.delimiter" = "black"
+"punctuation.bracket" = "black"
+"keyword" = "black"
+"operator" = "black"
+"function" = "g5"
+"function.builtin" = "g6"
+"function.macro" = "g6"
+"tag" = "g3"
+"namespace" = "black"
+"attribute" = "g3"
+"constructor" = "g4"
+"module" = "g4"
+"special" = "g3"
+
+"ui.background" = { bg = "white" }
+"ui.cursor" = { fg = "white", bg = "black" }
+"ui.cursor.match" = { fg = "black", bg = "g10" }
+"ui.cursor.insert" = { fg = "white", bg = "black" }
+"ui.cursor.select" = { fg = "black", bg = "g10" }
+"ui.linenr" = { fg = "g3", bg = "g13" }
+"ui.linenr.selected" = { fg = "white", modifiers = ["bold", "underlined"], bg = "g1" }
+"ui.cursorline" = { bg = "black" }
+"ui.statusline" = { fg = "white", bg = "g3" }
+"ui.statusline.inactive" = { fg = "black", bg = "g6" }
+"ui.popup" = { fg = "white", bg = "g5" }
+"ui.window" = { fg = "white", bg = "g5" }
+"ui.help" = { fg = "white", modifiers = ["bold"], bg = "g3" }
+"ui.text" = "black"
+"ui.text.focus" = "black"
+"ui.menu" = { fg = "black", bg = "g12" }
+"ui.menu.selected" = { fg = "white", modifiers = "underlined", bg = "g1" }
+"ui.selection" = { fg = "black", bg = "g13" }
+"ui.virtual.whitespace" = { fg = "g14" }
+"ui.virtual.ruler" = { bg = "g6" }
+"ui.virtual.inlay-hint" = { fg = "g4", modifiers = ["italic"] }
+
+"hint" = "g5"
+"info" = "g5"
+"warning" = "g5"
+"error" = { fg = "g5", modifiers = ["bold"] }
+
+"diagnostic.hint" = { underline = { style = "curl", color = "black" } }
+"diagnostic.info" = { underline = { style = "curl", color = "black" } }
+"diagnostic.warning" = { underline = { style = "curl", color = "black" } }
+"diagnostic.error" = { underline = { style = "curl", color = "black" } }
+
+"diff.plus" = { fg = "bg_green" }
+"diff.delta" = { fg = "bg_blue" }
+"diff.minus" = { fg = "nasty-red" }
+
+"markup.heading" = { fg = "purple", modifiers = ["bold"] }
+"markup.list" = "cyan"
+"markup.bold" = { fg = "orange", modifiers = ["bold"] }
+"markup.italic" = { fg = "yellow", modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = "cyan"
+"markup.link.text" = "pink"
+"markup.quote" = { fg = "yellow", modifiers = ["italic"] }
+"markup.raw" = { fg = "fg" }
+
+[palette]
+
+bg0 = "#ffffff"
+bg01 = "#ffffff"
+bg1 = "#ffffff"
+bg2 = "#ffffff"
+bg3 = "#ffffff"
+bg4 = "#ffffff"
+bg5 = "#ffffff"
+bg_visual = "#ffffff"
+bg_red = "#ffffff"
+bg_green = "#ffffff"
+bg_blue = "#ffffff"
+bg_yellow = "#ffffff"
+
+
+black = "#000000"
+g1 = "#111111"
+g2 = "#222222"
+g3 = "#333333"
+g4 = "#444444"
+g5 = "#555555"
+g6 = "#666666"
+g7 = "#777777"
+g8 = "#888888"
+g9 = "#999999"
+g10 = "#aaaaaa"
+g11 = "#bbbbbb"
+g12 = "#cccccc"
+g13 = "#dddddd"
+g14 = "#eeeeee"
+white = "#ffffff"
+
+fg = "#000000"
+red = "#621d28"
+nasty-red = "#da3333"
+dark-red = "#791717"
+orange = "#57320f"
+yellow = "#9a7d0e"
+green = "#3f4b34"
+aqua = "#455054"
+blue = "#3f5673"
+purple = "#534059"
+grey0 = "#aaaeb3"
+grey1 = "#e1e1e3"
+grey2 = "#646669"
+pink = "#e06c75"
