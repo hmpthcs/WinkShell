@@ -1,0 +1,40 @@
+theme = "e-ink"
+
+[editor]
+
+mouse = true
+auto-completion = true
+bufferline = "always"
+
+[editor.statusline]
+
+[editor.lsp]
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+
+[editor.file-picker]
+
+[editor.auto-pairs]
+
+[editor.search]
+
+[editor.whitespace]
+
+[editor.whitespace.characters]
+
+[editor.indent-guides]
+render = true
+character = "|"
+skip-levels = 1
+
+[editor.gutters]
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 25
+max-indent-retain = 0
+wrap-indicator = "↪"
