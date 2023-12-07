@@ -187,32 +187,34 @@
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
-colors:
-  primary:
-    background: '#ffffff'
-    foreground: '#000000'
-  cursor:
-    text: '#ffffff'
-    cursor: '#000000'
+#color theme based on https://codeberg.org/dnkl/foot/commit/242767d373d375a209e75b5a812116d7e1c9bfe0
   normal:
-    black:  '#000000'
-    red:    '#313131'
-    green:  '#444444'
-    yellow:  '#444444'
-    blue:   '#444444'
-    magenta:  '#444444'
-    cyan:   '#444444'
-    white:  '#53565b'
-    
+    black: '#000000'
+    red: '#515151'
+    green: '#313131'
+    yellow: '#111111'
+    blue: '#616161'
+    magenta: '#414141'
+    cyan: '#212121'
+    white: '#ffffff'
   bright:
-    black:  '#000000'
-    red:    '#3d3d3d'
-    green:  '#696969'
-    yellow:  '#696969'
-    blue:   '#999999'
-    magenta:  '#999999'
-    cyan:   '#c4c4c4'
-    white:  '#c4c4c4'
+    black: '#818181'
+    red: '#717171'
+    green: '#313131'
+    yellow: '#212121'
+    blue: '#717171'
+    magenta: '#515151'
+    cyan: '#212121'
+    white: '#000000'
+  dim:
+    black: '#818181'
+    red: '#717171'
+    green: '#313131'
+    yellow: '#212121'
+    blue: '#717171'
+    magenta: '#515151'
+    cyan: '#212121'
+    white: '#000000'
     
 # Colors (Tomorrow Night)
 #colors:
