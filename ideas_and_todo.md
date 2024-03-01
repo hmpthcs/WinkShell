@@ -11,11 +11,13 @@
     * Use libinput interface; examples=lisgd
   * Implement "drag mode, resize mode" in custom sway build
   * Damage tracking --> algorithm to trigger partial refreshes to remove artifacts?
+  * _*Lockscreen:*_ menu options appearing on pwr button press (sleep / lock screen / disable touchscreen / shutdown / reboot / end session / return to login screen or session chooser / open ttyX)
   
 * **SYSTEM**
   * Password managment: ripasso?
   * dotfile/config/backup utils
   * GPU monitoring
+  * PRIORITY: _*login screen*_, ability to choose sessions
 
 * **FILE MANAGEMENT**
   * Need drag-n-drop;
