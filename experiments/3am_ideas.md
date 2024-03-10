@@ -4,16 +4,56 @@ Some may evolve, transmuting far beyond the rudimentary descriptions and concept
 
 ^^^^^DRAFT of a draft
 
-1) **Input Methods**: an consisits of two separate but highly synergistic tools which leverage NLP backends to make even poorly-optimized handriting-to-character models useful
-   1) Stylus input 
-        - Need canvas app - prefer simplicity; low latency >>>> features
+1) **Input Methods** (aka tactalinuga):
+   - uses wayland/wlroots protocols (primary selection; IME)
+   - consisits of two separate but highly synergistic tools which leverage NLP backends to make even poorly-optimized handwriting-to-character models useful
+     
+       1) #### Stylus input 
+        - Need **canvas app** - prefer simplicity; low latency >>>> features
           - Could poach pieces from apps I like and use (rnote has 'rnote-engine'; xournalpp with good plugin)
           - List of canvas apps in the wild:
+              -(lots, add them at some point***)
           - List of 2d graphics frameworks and tools:
-            - vello - (rust) used by lapce ; https://github.com/linebender/vello
-            - piet - (rust) I think vello replaced this; rnote used to use piet-gpu 
-   3) Manipulation, introspection and using touch menus
-          - First level: c
+              - vello - (rust) used by lapce ; https://github.com/linebender/vello
+              - piet - (rust) I think vello replaced this; rnote used to use piet-gpu
+              - 
+              
+        - Need to figure out how to **pipe the stylus data to the model**
+            - Wlspeech: pipes from speech input -> model -> wayland via input method protocols
+            - Xournalpp:
+                  - plugin using goog: https://github.com/xournalpp/xournalpp/pull/2176
+                    - very consistently accurate results
+                    - UI is clunky; do not want to use clous
+                  - plugin using HTR_pipelines: https://github.com/PellelNitram/xournalpp_htr
+                    - results are ok (but config not optimized)
+                    - Models are not stroke-based...bitmaps....
+                    - UI same as above
+                    - Generates great visuals of segmentation boxes
+                       - would be interesting to integrate further into xournalpp (or another canvas) and render the boxes around the strokes, along with the character determined by the model; the box drawn can also serve as button, where interaction for correction/post-processing can begin.
+                    - "Githubharald" has lots of examples for pre/post-processing: (https://github.com/githubharald). See repos:
+                       - SimpleHTR
+                       - HTRPipeline
+                       - CTCWordBeamSearch
+    
+        - Need **language model backends**
+          - Should be able to be revised based on user's handwriting
+          - This WORKS; accuracy is low for me, but that's fixable. Input latency is also unacceptable, and this might be harder to fix:
+             - GTK canvas window (no controls at all, barest of barebones): https://github.com/Thesola10/Gtk4-WritePadWidget
+             - data is piped in realtime to the model (derived from here: https://github.com/phatware/WritePad-Handwriting-Recognition-Engine); data set is interesting
+             - output from the model is written to stdout; some updating of committed characters, but feedback revisions with stylus not implemented
+               
+          - **Plan**
+              - Canvas: Use the GTK canvas above for now; continue to explore if rnote engine can be dissected away from rnote proper; test some more examples, especially if any of them subvert libinput.
+     
+       2) #### **Post-processing** using touch menus:
+      - these can be plugins for fcitx5 (https://github.com/phatware/WritePad-Handwriting-Recognition-Engine), ibus (***) or something else entirely if need be (UIM, some one-offs ***)
+      - ibus-typing-booster example:
+   
+             - First level: primary_selection contains text --> draw selection handles + buttons (copy, paste, delete ; list alternates ; examine selection)
+             - Second level: [list alternates pressed] -> render dropdown menu (pretty just a normal IME panel with touch-friendly formatting); also has various dictionaries, invocation of which can depend on certain conditions (app name, etc. ; code dictionary for terminal completions, normal dictionary for everyday use, medical dictionary or other for specific uses)
+        
+             - ^^^^^^^FURTHER GOALS: make these menus a bit more interactive; see kando-menu for a good marking menu (but how do we reimplement the basic concept *without* electron???) https://github.com/kando-menu/kando
+      
       
 ----        
 
