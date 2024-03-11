@@ -20,5 +20,5 @@
    - Min-browser experiments: appearance first...
    - **CLIPBOARD:**
       - consider as preprequisite for everything related to archiving/digitial-gardening
-   - Test knowledge managment servics (forked, in&switch)
+   - Test knowledge managment servics (forked, ink&switch)
      
