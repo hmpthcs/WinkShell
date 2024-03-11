@@ -1,7 +1,7 @@
 ## GTK Environment Variables
 
 * **REFERENCE:** https://docs.gtk.org/gtk4/running.html#:~:text=Environment%20variables,use%20some%20additional%20environment%20variables.
-* **Best performance** observed in rnote so far: `GSK_RENDERER=opengl GSK_MAX_TEXTURE_SIZE=1 rnote`
+* **Best performance** observed in rnote so far: `GSK_RENDERER=opengl GSK_MAX_TEXTURE_SIZE=1 rnote`. (*might be placebo...* does this value even make sense?)
 
 * Missing functionality:
 
