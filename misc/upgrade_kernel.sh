@@ -8,7 +8,7 @@ branch="branch_pinenote_6-6-22"
 
 
 ### Clone source
-git clone $repo_source --branch $branch --single-branch --depth 1
+git clone --branch ${branch} --single-branch --depth 1 $repo_source
 
 cd linux
 
