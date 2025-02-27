@@ -1,35 +1,82 @@
 # Some of this borrowed from https://github.com/0cc4m/pinenote-misc/blob/main/sway/config/sway/config
 # Sway config for WinkShell on Pinenote
 
-#For sov to work:
-exec_always systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+############
+# ENV VARS #
+############
 
-### Variables
-#
-# Logo key. Use Mod1 for Alt.
+### For sov to work: ###
+# exec_always systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+#### 'This command passes environment variables from the window manager to session dbus' [swaywm wiki]
+exec dbus-update-activation-environment --all
+
+# (alternate, old) exec dbus-update-activation-environment --systemd DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
+
+#### gnome-keyring ###
+exec gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh 
+
+#################
+# Notifications #
+#################
+
+exec mako
+
+
+##################
+# SWAY VARIABLES #
+##################
+
+# Mod4=Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+
+### TERMINAL ###
 set $term alacritty
-# Your preferred application launcher
+
+### MENU ###
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show drun -i | xargs swaymsg exec --
 
-### Output configuration
-#
-# Pinenote display is called DPI-1. resolution 1872x1404@85Hz
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-output * background #FFFFFF solid_color
+##set $menu wofi --show drun -i | xargs swaymsg exec --
 
-### Idle configuration
-#
+set $menu bemenu-run -i -l 12 -c -n -M 0 --fn "Bitter Pro 14" --nb "#ffffff" \
+  --nf "#000000" --ab "#cccccc" --af "#000000" --bdr "#000000" --hf "#ffffff" \
+  --hb "#000000" -C -B 1 -W 0.5 --fbb "#222222" --fbf "#ffffff" --cw 1 \
+  --tb "#000000" --tf "#ffffff" --fb "#222222" --ff "#ffffff" -H 40 -R 3 \
+    | xargs swaymsg exec --
+
+
+########################
+# Output configuration #
+########################
+
+## Pinenote display is called DPI-1. resolution 1872x1404@85Hz
+
+## You can get the names of your outputs by running: swaymsg -t get_outputs
+## output DPI-1 background #FFFFFF solid_color
+
+output DPI-1 {
+  mode 1872x1404@40Hz
+  max_render_time off
+  subpixel none
+#  adaptive_sync on
+  background #cccccc solid_color
+  }
+
+### Disable xwayland ###
+xwayland disable
+
+######################
+# Idle configuration #
+######################
+
 # Example configuration:
-#
+
 # exec swayidle -w \
 #          timeout 300 'swaylock -f -c 000000' \
 #          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
@@ -39,46 +86,49 @@ output * background #FFFFFF solid_color
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 #
-## possibly will remove this and replace the subsequent line with systemd suspend hooks
-
-# bindsym --no-repeat XF86PowerOff exec "systemctl suspend" 
-
 #
-## Occ4m's swayidle:
+### Occ4m's swayidle: ###
 # exec_always --no-startup-id flock -n .swayidle.lock swayidle timeout 600 "systemctl suspend" \
 # before-sleep "~/.local/bin/before_sleep.sh" after-resume "~/.local/bin/after_resume.sh"
 
-### Input configuration
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-#
-# This was at one point necessary on the Pinenote, but no longer so. Rotates touchscreen 180deg.
+
+### SEAT ###
+#seat seat0 {
+#  hide_cursor when-typing enable
+#  hide_cursor 100
+#  }
+
+# seat <name> idle_wake <sources...>
+#Sets the set of input event sources which
+#can wake the seat from its idle state, as
+#a space separated list of source names.
+#Valid names are "keyboard", "pointer",
+#"touchpad", "touch", "tablet_pad",
+#"tablet_tool", and "switch". The default
+#behavior is to wake from idle on any event.  
+
+#######################  
+# Input configuration #
+#######################
+
+## This was at one point necessary on the Pinenote, but no longer so. Rotates touchscreen 180deg.
 # input "type:tablet_tool" calibration_matrix -1 0 1 0 -1 1
 
+
 # input 0:0:cyttsp5 map_to_output DPI-1
-input * map_to_output DPI-1
 
-# input wlr_virtual_keyboard_v1 {
-#	repeat_delay 200
-#	repeat_rate 400
-# }
+input * {
+  map_to_output DPI-1
+#  drag enabled
+#  drag_lock enabled
+#  tap enabled
+  pointer_accel 0
+  }
 
-input type:touch {
-	drag enabled
-	tap enabled
-	click_method clickfinger
-	tap_button_map lrm
-	accel_profile flat
-}
+################
+# Key bindings #
+################
 
-# bindgesture hold:1 { echo "click right" | dotool }
-
-tiling_drag enable
-floating_modifier Alt normal
-
-### Key bindings
-#
 # Basics:
 #
     # Start a terminal
@@ -90,12 +140,6 @@ floating_modifier Alt normal
 
     # Start your launcher
     bindsym $mod+d exec $menu
-
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
@@ -215,46 +259,52 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
+##############
+# Status Bar #
+##############
 
-# bar  {
-#      swaybar_command waybar -c ~/.config/waybar/waybar_hw.config
-#      id bar-0
-#  }
-
+##BAR NOT STARTED IN WINKSHELL_INIT
+# exec_always waybar -c "~/.config/waybar/waybar_center.config"
 
 bar {
-    id center
-    swaybar_command exec waybar -c "~/.config/waybar/waybar_bars.config"
+    id showbtn
+    swaybar_command "waybar -c ~/.config/waybar/waybar_showbtn.config"
     mode hide
     hidden_state show
     position top
 }
 
 bar {
-	id hw
-	swaybar_command true
-	mode hide
-	hidden_state show
-	position top
+        id hidebtn
+        swaybar_command "waybar -c ~/.config/waybar/waybar_hidebtn.config"
+        mode invisible
+        hidden_state show
+        position top
  }
 
 bar {
-	id hw_expanded
-	swaybar_command true
-	mode invisible
-	hidden_state show
-	position top
+    id center
+    swaybar_command "waybar -c -/.config/waybar/waybar_center.config"
+    mode invisible
+    hidden_state show
+    position bottom
 }
 
-# exec_always killall waybar ; waybar -c ~/.config/waybar/waybar_hw.config
 
-# Create new workspace on next / prev if it doesnt exist 
+# bar {
+#	id hw_expanded
+#	swaybar_command true
+#	mode invisible
+#	hidden_state show
+#	position top
+#}
 
-  set $next_or_new swaymsg -r -t get_workspaces | jq -r --arg OUTPUT $(swaymsg -t get_outputs -r | jq -r '.[] | select(.focused == true) | .name') '(. | (max_by(.num) | .num)) as $max | [.[] | select(.output == $OUTPUT)] | (max_by(.num) | .num) as $maxOutput | (.[] | select(.focused == true) | .num) as $current | if $maxOutput > $current then "next_on_output" else $max + 1 end'
+##exec_always "waybar -c ~/.config/waybar/waybar_center.config"
+
+
+### Create new workspace on next / prev if it doesnt exist ####
+
+set $next_or_new swaymsg -r -t get_workspaces | jq -r --arg OUTPUT $(swaymsg -t get_outputs -r | jq -r '.[] | select(.focused == true) | .name') '(. | (max_by(.num) | .num)) as $max | [.[] | select(.output == $OUTPUT)] | (max_by(.num) | .num) as $maxOutput | (.[] | select(.focused == true) | .num) as $current | if $maxOutput > $current then "next_on_output" else $max + 1 end'
     set $previous_or_first swaymsg -r -t get_workspaces | jq -r --arg OUTPUT $(swaymsg -t get_outputs -r | jq -r '.[] | select(.focused == true) | .name') '(. | (max_by(.num) | .num)) as $max | [.[] | select(.output == $OUTPUT)] | (min_by(.num) | .num) as $minOutput | (.[] | select(.focused == true) | .num) as $current | if $minOutput < $current then "prev_on_output" else $current end'
 
     bindsym $mod+Right exec swaymsg "workspace $($next_or_new)"
@@ -262,35 +312,73 @@ bar {
 
     bindsym $mod+Shift+Right exec swaymsg "move container to workspace $($next_or_new), workspace next_on_output"
     bindsym $mod+Shift+Left exec swaymsg "move container to workspace $($previous_or_first), workspace prev_on_output"
+############
 
 
-### Borders and appearance stuff:
-# gaps outer | top | bottom <amount>
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+
+tiling_drag enable
+tiling_drag_threshold 3
+floating_modifier Alt normal
+
+#################################
+# Borders and appearance stuff: #
+#################################
+
+#
+#set white
+#set gray1
+#set gray2
+#set gray3
+#set gray4
+#set gray5
+#set gray6
+#set gray7
+#set gray8
+#set gray9
+#set gray10
+#set gray11
+#set gray12
+#set gray13
+#set gray14
+#set gray15
+#set black
+#
+
+
+### Gaps ###
+## gaps outer | top | bottom <amount>
+
+#gaps top 5
+#gaps bottom 4
+#gaps left 4
+#gaps right 4
+
 gaps inner 0
 gaps outer 3
 
-# show borders only if ws has >1 window
+### Borders ###
+## show borders only if ws has >1 window
 smart_borders on
-hide_edge_borders horizontal
 
-# show gaps only if there is exactly one child
-# smart_gaps off
+#hide_edge_borders both
 
-#might re-enable this line if toggling big borders for resizing looks ugly  hide_edge_borders vertical
+## do not show gaps only if there is exactly one container (app / tabview / stack)
+# smart_gaps on
+## might re-enable this line if toggling big borders for resizing looks ugly  hide_edge_borders vertical
 
-default_border normal 1
+default_border pixel 1
+default_floating_border normal 1
 # titlebar_position bottom
 titlebar_border_thickness 1
-titlebar_padding 1
-floating_maximum_size 800 x 600
- 
-
-output DPI-1 max_render_time off
-output DPI-1 adaptive_sync off
-exec_always swaymsg splitv
-
-exec_always killall /usr/local/bin/winkshell_borderfocus.py ; /usr/local/bin/winkshell_borderfocus.py
-exec_always killall python3 /usr/local/bin/autotiling.py ; /usr/local/bin/autotiling.py
+titlebar_padding 1 1
+floating_maximum_size 600 x 400
+title_align center
+font pango:Bitter Pro 10
 
 
 #client.<class> <border> <background> <text> [indicator [child border]]
@@ -300,89 +388,184 @@ exec_always killall python3 /usr/local/bin/autotiling.py ; /usr/local/bin/autoti
 # indicator = color to paint the side of a window/container where a new view will open
 # child border = border around view itself
 
-client.focused #000000 #000000 #000000 #000000 #000000
-client.unfocused #999999 #999999 #999999 #999999 #999999
-client.focused_inactive #999999 #999999 #999999 #999999 #999999
-font Bitter 1
-title_align center
+
+#client.focused_inactive #666666 #999999 #ffffff #aaaaaa #aaaaaa
+###777777 #777777 #ffffff #a3a3a3 #a3a3a3
+
+##
+#client.focused #333333 #111111 #ffffff #000000 #000000
+#client.unfocused #aaaaaa #dddddd #000000 #aaaaaa #aaaaaa
+#client.focused_tab_title #11111100 #111111 #ffffff
+##
 
 
-# for_window <criteria> <command>
-for_window [app_id="focused"] {
+## generic window that is focused:
+client.focused #000000 #000000 #ffffff #000000 #000000
 
+## generic window that isn't focused but is visible:
+client.unfocused #bbbbbb #eeeeee #000000 #bbbbbb #bbbbbb
+
+## Example: [**this one]tabbed container --> child tabbed container --> child window [focused]:
+client.focused_inactive #dddddd #333333 #ffffff #bbbbbb #bbbbbb
+
+
+
+set {
+	$ii inhibit_idle focus
+	$game inhibit_idle focus; floating enable; border none; fullscreen enable; shadows disable
+	$popup floating enable; border pixel 1; sticky enable; shadows disable
+	$float floating enable; border pixel 1; shadows disable
+	$video inhibit_idle fullscreen; max_render_time 1
+	$important inhibit_idle open; floating enable; border pixel 1
+	$max inhibit_idle visible; floating enable; sticky enable; border pixel 1
 }
 
-#for_window [floating] {
-#    swaymsg border normal 15
-# }
 
-for_window [app_id="pavucontrol"] {
+
+no_focus [app_id="org.pwmt.zathura"]
+
+#### for_window <criteria> <command> ###
+
+
+### For gurk+yazi tabbed container
+#  first move focus to window with title "GurkMain"
+#  then create a horizontal split
+#  then move focus to most recently focused child container
+#  finally, set child container to have tabbed layout
+
+for_window [title="GurkFiles"] {
+	mark --add "gurkfiles"
+	focus parent
+	split horizontal
+	mark --add "gurkparent"
+	focus child
+	layout tabbed
+	}
+	
+#	no_focus
+#    focus [con_mark="gurkgroup"]
+#	move window to mark "gurkgroup"
+#	focus parent
+#	title_format "T[Gurk Group]"
+#	focus child
+#	focus child split horizontal
+#	layout tabbed
+
+
+for_window [title="GurkMain"] {
+    [title="GurkMain"] focus
+#	title_format "T[Gurk Group]"
+	focus parent
+	mark --add "gurkgroup"
+	split horizontal
+	focus child
+	layout tabbed
+#	swaymsg	exec "[title="GurkMain"] focus" && swaymsg exec "focus parent" && title_format "T[Gurk Group]"
+}
+
+### For tabbed qutebrowser ################################
+
+for_window [app_id="org.qutebrowser.qutebrowser"] {
+	layout tabbed
+	border normal 1
+}
+
+no_focus [app_id="org.qutebrowser.qutebrowser"]
+
+###########################################################
+
+## testing 
+for_window [app_id="mugenpen"] {
+  floating enable 
+  resize set width 600 height 400
+}
+
+### For `helyaz.sh`, the helix-yazi filepicker ############
+
+for_window [app_id = "floating_alacritty"] floating enable
+
+###########################################################
+
+for_window {
+    [app_id="com.igalia.Cog"] border normal
+    [app_id="org.github.flxzt.rnote"] max_render_time off
+    [app_id="org.github.com.xournalpp.xournalpp"] max_render_time off
+
+    [title="Open file"] resize set width 600 height 400, move position 10ppt 10ppt, border normal 1
+    [title="(Import) (.)"] resize set width 600 height 400, border normal 1
+
+  	[app_id="org.pwmt.zathura"] {
+	  floating enable
+	  resize set width 45ppt height 95ppt
+	  move position 50ppt 5ppt
+	}
+
+        [title="dropdown"] {
+          floating enable
+          resize set width 94ppt height 400px
+          move position 3ppt 20px
+       } 
+
+#video - inhibit_idle fullscreen; border none; max_render_time off
+	[instance="chromium"] $video
+	[app_id="mpv"] $video
+	[class="firefox"] $video
+	[app_id="firefox"] $video
+	[class="Nightly"] $video
+
+  [app_id="anki"] $float
+
+  [title="(?:Open|Save) (?:File|Folder|As)"] floating enable, resize set width 400 height 300, move position 0ppt 0ppt
+
+  [app_id="soffice"] floating enable, resize set width 300px height 300px, move position 10ppt 0ppt
+
+  [app_id="pavucontrol"] {
    floating enable
    resize set width 100ppt
    resize set height 360px
    move position 0 30
-}
+  }
 
-for_window [app_id="iwgtk"] {
+  [app_id="mpv"] {
+   floating enable
+   resize set width 600px
+   resize set height 60px
+   move position 10ppt 10ppt
+  }
+
+  [app_id="iwgtk"] {
     floating enable
     resize set width 500px
     resize set height 500px
-}
+  }
 
-for_window [app_id="blueman-manager"] {
+  [app_id="blueman-manager"] {
     floating enable
+  }
 }
 
-# Kill shell apps before starting them so that reloading sway config doesn't give you multiple keyboards:
-###exec_always killall -9 lavalauncher && 
-###exec_always lavalauncher -c ~/.config/lavalauncher/lavamain.conf
-# exec_always killall wvkbd-mobintl ; 
+# bindsym BTN_RIGHT exec /home/m4n4pe/git/WinkShell/wmenuawait.sh
 
-## exec_always wvkbd-mobintl --fg ffffffff --fg-sp 595a5c40 --bg 000000ff --text 000000ff --text-sp 000000ff --press 000000ff --press-sp 000000ff -L 200 -H 330 --landscape-layers landscape,special,nav -l simple,special,nav --hidden
-### exec_always killall -9 wvkbd-mobintl &&  
-### exec_always /usr/local/bin/keyboard_start.sh
+#exec_always systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# exec enable-ibus-daemon
 
-# nwg-drawer with '-r' flag runs a resident drawer on startup; running nwg-drawer command now does 'pkill -USR1 nwg-drawer', which the app responds to by appearing and disappearing on demand. No killall needed here.
-# doing it anyway though so I can test configs
-### exec_always killall -9 nwg-drawer && 
-### exec_always nwg-drawer -c 5 -is 50 -fm "nemo" -d -r
-
-
-# The following two lines are placeholders for the eventual implementation of rotation on the pinenote 
-# exec_always /usr/local/bin/pinenote_sway_rotate.sh
-# exec 'rot8 --display DPI-1 --threshold 0.97'
-
-## have spezifisch/rot8 installed. not working exec_always killall rot8 &&
-## exec_always 'rot8 --display DPI-1 --threshold 0.97 --x-file /sys/bus/iio/devices/iio:device2/in_accel_y_raw --y-file /sys/bus/iio/devices/iio:device2/in_accel_x_raw --y-invert --on-change swayphone_rotated'
-
-
-exec_always systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
+# Start winkshell services with winkshell_init.sh:
+#  waybars, wvkbd, rot8, lisgd, wcp, sov, swovcp, autotiling.py
+#  Then trigger a global refresh
 exec_always /usr/local/bin/winkshell_init.sh
 
+# Input method editor I guess
+#exec_always ibus-daemon -drx
+exec fcitx5 -d -r --enable all
 
-exec_always killall tail ; killall sov ; rm -f /tmp/sovpipe ; mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -r 6 -a t -m 100
-##add some bindsyms here to show/hide/quit/restart sov
+# (done in winkshell_init.sh)
+#exec_always python3 /usr/local/bin/autotiling.py
 
-exec_always killall wcp ; rm -f /tmp/wcp ; mkfifo /tmp/wcp && tail -f /tmp/wcp | wcp -a t -f 260x260 -m 35
+# Test script to change borders for focused containers
+#exec_always killall /usr/local/bin/winkshell_borderfocus.py ; /usr/local/bin/winkshell_borderfocus.py
 
-exec_always rm -f /tmp/swovcp ; mkfifo /tmp/swovcp && tail -f /tmp/swovcp | wcp -r "~/.config/wcp/swovcp" -f 900x200
+# (done in winkshell_init.sh)
+# exec_always waybar -c ~/.config/waybar/waybar_showbtn.config & waybar -c ~/.config/waybar/waybar_center.config & waybar -c ~/.config/waybar/waybar_hidebtn.config &
 
-### exec_always killall -9 wlclock && 
-### exec_always /usr/local/bin/wlclock_topright-run.sh
-
-### exec_always killall -9 lisgd && 
-### exec_always /usr/local/bin/lisgd-run.sh 
-
-# set backlight to zero; might be removed if lower level default can be set elsewhere
-exec echo 0 > /sys/class/backlight/backlight_cool/brightness
-exec echo 0 > /sys/class/backlight/backlight_warm/brightness
-
-#alternative:
-# exec brightnessctl --device=backlight_warm s 0
-# exec brightnessctl --device=backlight_cool s 0
-# exec_always rot8 -d DPI-1 -x /sys/bus/iio/devices/iio:device2/in_accel_x_raw -y /sys/bus/iio/devices/iio:device2/in_accel_x_raw --scale 1
-
-# exec_always env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1
 
 include /etc/sway/config.d/*
